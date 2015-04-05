@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/pfryga/mongodb-part3",
   "dependencies": {
-    "express": "^4.12.3"
+    "express": "^4.12.3",
+    "mongodb": "^2.0.25"
   }
 }
