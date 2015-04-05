@@ -89,7 +89,20 @@ function PostsDAO(db) {
         }
 
         // hw3.3 TODO
-        callback(Error("addComment NYI"), null);
+
+        posts.findOne({ permalink: permalink }, function (err, post) {
+            if (err) {
+                callback(err, null);
+            }
+
+            posts.update({ _id: post._id }, { $push: { comments: comment } }, function (err) {
+                if (err) {
+                    callback(err, null);
+                }
+
+                callback(null, true);
+            });
+        });
     }
 }
 
