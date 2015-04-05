@@ -11,12 +11,12 @@ npm install
 
 ## Blog project for hw2 and hw3
 
-blog/app.js - entry point
-blog/package.json - npm package description
-blog/posts.js - Posts Data Access Helper
-blog/sessions.js - Sessions Data Access Helper
-blog/users.js - Users Data Access Helper
-blog/views/ - html templates
+* blog/app.js - entry point
+* blog/package.json - npm package description
+* blog/posts.js - Posts Data Access Helper
+* blog/sessions.js - Sessions Data Access Helper
+* blog/users.js - Users Data Access Helper
+* blog/views/ - html templates
 
 Getting started with hw 2/3
 
