@@ -4,7 +4,8 @@
   "description": "MongoDB University - MongoDB for Node.js developers",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "hw1": "node hw1.js",
+    "hw2": "node hw2.js"
   },
   "repository": {
     "type": "git",
