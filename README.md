@@ -18,12 +18,6 @@ npm install
 * blog/users.js - Users Data Access Helper
 * blog/views/ - html templates
 
-Getting started with hw 2/3
-
-cd blog/
-npm install
-node app.js
-
 ## Homeworks
 Run homework 3.1
 ```
