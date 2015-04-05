@@ -1,0 +1,22 @@
+{
+  "name": "mongodb-part3",
+  "version": "1.0.0",
+  "description": "MongoDB University - MongoDB for Node.js developers",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pfryga/mongodb-part3.git"
+  },
+  "author": "piotr.fryga@allegro.pl",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pfryga/mongodb-part3/issues"
+  },
+  "homepage": "https://github.com/pfryga/mongodb-part3",
+  "dependencies": {
+    "express": "^4.12.3"
+  }
+}
