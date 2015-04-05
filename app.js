@@ -3,15 +3,21 @@ var MongoClient = require('mongodb').MongoClient;
 var app = express();
 var port = 8082;
 
-MongoClient.connect('mongodb://localhost:27017/students', function(err, db) {
-    "use strict";
 
+MongoClient.connect('mongodb://localhost:27017/school', function(err, db) {
+    "use strict";
     if(err) throw err;
 
-    console.log(db);
+    var students = db.collection('students');
+    var coursor = students.find();
+
+    var i = 0;
+    coursor.each(function (err, doc) {
+        console.log(i++);
+    });
 
     app.listen(port, function () {
-        console.log('Express server listening on port' + port);
+        console.log('Express server listening on port ' + port);
     });
 });
 
