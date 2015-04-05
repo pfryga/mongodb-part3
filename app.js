@@ -3,19 +3,26 @@ var MongoClient = require('mongodb').MongoClient;
 var app = express();
 var port = 8082;
 
-var getLowestItemId = function (scores) {
-    var lowestValue = scores[0].score;
-    var lowestValueIterator = 0;
+var removeLowestHomeworkScore = function(scores) {
+    var lowestItemValue = scores[0].score;
+    var lowestItemIterator = 0;
+    var returnArray = [];
 
     for (var i = 0; i < scores.length; i++) {
-        if (scores[i].score < lowestValue) {
-            lowestValue = scores[i].score;
-            lowestValueIterator = i;
+        if (scores[i]['score'] < lowestItemValue && scores[i]['type'] === 'homework') {
+            lowestItemValue = scores[i]['score'];
+            lowestItemIterator = i;
         }
     }
 
-    return lowestValueIterator;
-}
+    for (var i = 0; i < scores.length; i++) {
+        if (i !== lowestItemIterator) {
+            returnArray.push(scores[i]);
+        }
+    }
+
+    return returnArray;
+};
 
 MongoClient.connect('mongodb://localhost:27017/school', function(err, db) {
     "use strict";
@@ -32,7 +39,12 @@ MongoClient.connect('mongodb://localhost:27017/school', function(err, db) {
             db.close();
         }
 
-        console.log(getLowestItemId(doc.scores));
+        doc.scores = removeLowestHomeworkScore(doc.scores);
+        students.update({ '_id' : doc._id }, doc, {}, function(err, result) {
+            if (err) throw err;
+
+            console.log('updated!');
+        });
     });
 
     app.listen(port, function () {
